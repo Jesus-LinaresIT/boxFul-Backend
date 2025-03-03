@@ -20,3 +20,30 @@ model User {
   password  String
   createdAt DateTime @default(now())
 }
+
+model Order {
+  id               String    @id @default(auto()) @map("_id") @db.ObjectId
+  pickupAddress    String
+  senderName       String
+  senderLastName   String
+  senderEmail      String
+  senderPhone      String
+  recipientAddress String
+  department       String
+  municipality     String
+  referencePoint   String
+  scheduledDate    String
+  packages         Package[]
+  createdAt        DateTime  @default(now())
+}
+
+model Package {
+  id      String  @id @default(auto()) @map("_id") @db.ObjectId
+  orderId String  @db.ObjectId
+  order   Order   @relation(fields: [orderId], references: [id])
+  weight  Float
+  content String
+  length  Float
+  height  Float
+  width   Float
+}

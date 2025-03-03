@@ -6,11 +6,13 @@ import { ConfigModule } from '@nestjs/config';
 import { PrismaService } from './prisma/prisma.service';
 import { JwtService } from '@nestjs/jwt';
 import { AuthService } from './auth/auth.service';
+import { OrdersModule } from './orders/orders.module';
 
 @Module({
   imports: [
     ConfigModule.forRoot(),
-    AuthModule
+    AuthModule,
+    OrdersModule
   ],
   controllers: [AppController],
   providers: [AppService, PrismaService, JwtService],
