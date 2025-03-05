@@ -33,6 +33,7 @@ model Order {
   municipality     String
   referencePoint   String
   scheduledDate    String
+  instructions     String
   packages         Package[]
   createdAt        DateTime  @default(now())
 }

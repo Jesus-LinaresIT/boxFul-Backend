@@ -43,6 +43,10 @@ export class CreateOrderDto {
    @IsString({ message: 'La fecha programada debe ser un texto en formato válido' })
    scheduledDate: string;
 
+   @IsNotEmpty({ message: 'Las instrucciones son obligatorias' })
+   @IsString({ message: 'La instrucciones deben ser un texto en formato válido' })
+   instructions: string;
+
    @IsNotEmpty({ message: 'Debe de incluir al menos un paquete' })
    @IsArray({ message: 'El listado de paquetes debe de ser un Array' })
    @ValidateNested({ each: true })

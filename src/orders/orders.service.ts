@@ -19,6 +19,7 @@ export class OrdersService {
             municipality: dto.municipality,
             referencePoint: dto.referencePoint,
             scheduledDate: dto.scheduledDate,
+            instructions: dto.instructions,
             packages: {
                create: dto.packages.map(pkg => ({
                   weight: pkg.weight,
